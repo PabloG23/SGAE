@@ -31,7 +31,7 @@
                 <p:layoutUnit position="center">
 <!--                    <h1>Generar Reporte de Lista de Asistencia.</h1>-->
                     <p:fieldset legend="Generar Reporte de Lista de Asistencia." style="margin-bottom: 20px">
-                        <h:panelGrid columns="1"  >
+                        <h:panelGrid columns="3"  >
 
                             <p:outputLabel value="Grupo:" />
                             <p:selectOneMenu id="Grupo"
@@ -39,11 +39,12 @@
                                          required="true">
                         <f:selectItem itemLabel="Seleccionar una Opción" itemValue="" noSelectionOption="true" />
                         <f:selectItems
-                            value="#{beanAlumno.jalarGrupos()}"
+                            value="#{beanUsuario.jalargrupodepromotorlogeado()}"
                             var="grupo"
                             itemLabel="#{grupo.actividad.catActividad.nombre} #{grupo.dias} #{grupo.horario}"
                             itemValue="#{grupo.idGrupo}"/>
                         </p:selectOneMenu>
+                            <p:commandButton value="Mostrar Alumnos"  actionListener="#{beanUsuario.alumno_grupo()}" icon="ui-icon-check" />
                             </h:panelGrid>
                     </p:fieldset>
                     

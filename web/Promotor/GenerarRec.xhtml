@@ -30,7 +30,7 @@
 
                 <p:layoutUnit position="center">
                     <p:fieldset legend="Generar Reporte de Alumnos con Reconocimiento" style="margin-bottom: 10px">
-                    <h:panelGrid columns="1"  >
+                    <h:panelGrid columns="3"  >
                         
                         <p:outputLabel value="Grupo:" />
                         <p:selectOneMenu id="Grupo"
@@ -38,17 +38,18 @@
                                          required="true">
                         <f:selectItem itemLabel="Seleccionar una Opción" itemValue="" noSelectionOption="true" />
                         <f:selectItems
-                            value="#{beanAlumno.jalarGrupos()}"
+                            value="#{beanUsuario.jalargrupodepromotorlogeado()}"
                             var="grupo"
                             itemLabel="#{grupo.actividad.catActividad.nombre} #{grupo.dias} #{grupo.horario}"
                             itemValue="#{grupo.idGrupo}"/>
                         </p:selectOneMenu>
+                        <p:commandButton value="Mostrar Alumnos"  actionListener="#{beanUsuario.alumno_grupo()}" icon="ui-icon-check" />
                     </h:panelGrid>
 
                     <h:panelGrid columns="2"  >
                         
                     
-                    <p:dataTable value="#{beanAlumno.jalarAlumnos()}" var="alumno">
+                    <p:dataTable value="#{beanUsuario.alumno_grupo()}" var="alumno">
                              <p:column headerText="Apellido Paterno">
                                 <div align="center">
                                     <h:outputText value="#{alumno.apPat}"/>

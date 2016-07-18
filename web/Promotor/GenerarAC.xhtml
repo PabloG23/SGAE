@@ -31,7 +31,7 @@
                 <p:layoutUnit position="center">
                     <p:fieldset legend="Generar Cedulas de Resultados" style="margin-bottom: 10px">
                         <h:form>
-                            <h:panelGrid columns="1"  >
+                            <h:panelGrid columns="3"  >
 
                                 <p:outputLabel value="Grupo:" for="Grupo"/>
                                 <p:selectOneMenu id="Grupo"
@@ -44,6 +44,7 @@
                                         itemLabel="#{grupo.actividad.catActividad.nombre} #{grupo.dias} #{grupo.horario}"
                                         itemValue="#{grupo.idGrupo}"/>
                                 </p:selectOneMenu>
+                                <p:commandButton value="Mostrar Alumnos"  actionListener="#{beanUsuario.alumno_grupo()}" icon="ui-icon-check" />
 
                             </h:panelGrid>
 
@@ -51,7 +52,7 @@
                             <h:panelGrid columns="2"  >
 
 
-                                <p:dataTable value="#{beanAlumno.jalarAlumnos()}" var="alumno">
+                                <p:dataTable value="#{beanUsuario.alumno_grupo()}" var="alumno">
                                     <p:column headerText="Apellido Paterno">
                                         <div align="center">
                                             <h:outputText value="#{alumno.apPat}"/>
@@ -86,8 +87,8 @@
                                 </p:dataTable>
                             </h:panelGrid>
 
-                            <p:commandButton value="Guardarchida"  actionListener="#{beanUsuario.alumno_grupo()}" icon="ui-icon-check" >
-                            </p:commandButton>  
+                            
+                            
 
                         </h:form>
                     </p:fieldset>
